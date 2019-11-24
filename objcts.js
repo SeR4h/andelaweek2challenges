@@ -1,9 +1,10 @@
-for(i=1; i<=15;i++){
-let k = i;
-let j = k*k;
-let numbers ={
-[k] : [j],
+let numbers = {}
+
+for (var number = 1; number <= 15; number++) {
+  var myKey = number
+  var myValue = number ** 2
+  numbers[myKey] = myValue
+
 }
-for(i in numbers){
-  console.log(i + ": " + numbers[i])
-}}
+
+console.log(numbers)
