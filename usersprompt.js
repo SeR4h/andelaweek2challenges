@@ -1,4 +1,3 @@
-
 var readline = require('readline');
 
 var rl = readline.createInterface({
@@ -6,22 +5,28 @@ var rl = readline.createInterface({
     output: process.stdout
 });
 
-function enterYear(number) {
-    if(number<18){
-console.log('User is a child');
-} 
-else if(number<36){
-console.log('User is a youth')
-} 
-else{
-console.log('User is an adult')
-}  
+function logAgeGroup(number) {
+    if (number < 18) {
+        console.log('User is a child');
+    }
+    else if (number < 36) {
+        console.log('User is a youth')
+    }
+    else {
+        console.log('User is an adult')
+    }
 }
 
 rl.question('What is your Year of Birth?: ', function (x) {
-          var sum = 2019 - parseInt(x);
+    var year = parseInt(x)
+    if (year >= 1900) {
+        var age = 2019 - year;
+    }
+    else {
+        rl.close();
+        return console.log('Out of Range,please enter valid year of birth')
 
-        enterYear(sum)
-  rl.close();
+    }
+    logAgeGroup(age)
+    rl.close();
 });
- 
