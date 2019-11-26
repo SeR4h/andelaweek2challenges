@@ -1,3 +1,4 @@
+
 var readline = require('readline');
 
 var rl = readline.createInterface({
@@ -19,14 +20,12 @@ function logAgeGroup(number) {
 
 rl.question('What is your Year of Birth?: ', function (x) {
     var year = parseInt(x)
-    if (year >= 1900) {
+    if (year >= 1900 && year <= 2019) {
         var age = 2019 - year;
+        logAgeGroup(age)
     }
     else {
-        rl.close();
-        return console.log('Out of Range,please enter valid year of birth')
-
+        console.log('Out of range,please enter valid year of bith')
     }
-    logAgeGroup(age)
     rl.close();
-});
+})
