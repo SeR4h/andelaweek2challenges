@@ -6,22 +6,26 @@ var rl = readline.createInterface({
     output: process.stdout
 });
 
-function enterYear(number) {
-    if(number<18){
-console.log('User is a child');
-} 
-else if(number<36){
-console.log('User is a youth')
-} 
-else{
-console.log('User is an adult')
-}  
+function logAgeGroup(number) {
+    if (number < 18) {
+        console.log('User is a child');
+    }
+    else if (number < 36) {
+        console.log('User is a youth')
+    }
+    else {
+        console.log('User is an adult')
+    }
 }
 
 rl.question('What is your Year of Birth?: ', function (x) {
-          var sum = 2019 - parseInt(x);
-
-        enterYear(sum)
-  rl.close();
-});
- 
+    var year = parseInt(x)
+    if (year >= 1900 && year <= 2019) {
+        var age = 2019 - year;
+        logAgeGroup(age)
+    }
+    else {
+        console.log('Out of range,please enter valid year of bith')
+    }
+    rl.close();
+})
